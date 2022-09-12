@@ -108,11 +108,8 @@ fn configure_spdk() -> Result<LibraryConfig, Error> {
     spdk_lib.exclude_lib("spdk_bdev_blobfs");
     spdk_lib.exclude_lib("spdk_bdev_ftl");
     spdk_lib.exclude_lib("spdk_bdev_gpt");
-    spdk_lib.exclude_lib("spdk_bdev_passthru");
     spdk_lib.exclude_lib("spdk_bdev_raid");
     spdk_lib.exclude_lib("spdk_bdev_split");
-    spdk_lib.exclude_lib("spdk_bdev_zone_block");
-    spdk_lib.exclude_lib("spdk_event_nvmf");
     spdk_lib.exclude_lib("spdk_sock_uring");
     spdk_lib.exclude_lib("spdk_ut_mock");
 
@@ -135,6 +132,7 @@ fn configure_spdk() -> Result<LibraryConfig, Error> {
         "spdk_accel",
         "spdk_accel_ioat",
         "spdk_bdev_aio",
+        "spdk_trace",
         #[cfg(target_arch = "x86_64")]
         //"spdk_bdev_crypto",
         "spdk_bdev_delay",
@@ -143,8 +141,10 @@ fn configure_spdk() -> Result<LibraryConfig, Error> {
         "spdk_bdev_malloc",
         "spdk_bdev_null",
         "spdk_bdev_nvme",
+        "spdk_bdev_passthru",
         "spdk_bdev_uring",
         "spdk_bdev_virtio",
+        "spdk_bdev_zone_block",
         "spdk_env_dpdk",
         "spdk_env_dpdk_rpc",
         "spdk_event",
@@ -152,6 +152,7 @@ fn configure_spdk() -> Result<LibraryConfig, Error> {
         "spdk_event_bdev",
         "spdk_event_iscsi",
         "spdk_event_nbd",
+        "spdk_event_nvmf",
         "spdk_event_scsi",
         "spdk_event_sock",
         "spdk_event_vmd",
@@ -299,6 +300,7 @@ fn main() {
         .allowlist_type("^spdk_nvme_ns_flags")
         .allowlist_type("^spdk_nvme_registered_ctrlr.*")
         .allowlist_type("^spdk_nvme_reservation.*")
+        .allowlist_type("^spdk_nvme_zns_zone_.*")
         .allowlist_var("^NVMF.*")
         .allowlist_var("^SPDK.*")
         .allowlist_var("^spdk.*")
