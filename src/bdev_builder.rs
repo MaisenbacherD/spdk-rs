@@ -207,6 +207,8 @@ where
                 module: self.module.as_ptr(),
                 fn_table: null_mut::<spdk_bdev_fn_table>(),
                 internal: Default::default(),
+                reset_io_drain_timeout: Default::default(),
+                split_on_write_unit: Default::default(),
             },
             fn_table: self.fn_table.expect("Bdev function table must be set"),
             data: self.data.expect("Bdev data must be set"),
