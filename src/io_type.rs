@@ -38,6 +38,12 @@ pub enum IoType {
     /// TODO
     Abort,
     /// TODO
+    SeekHole,
+    /// TODO
+    SeekData,
+    /// TODO
+    Copy,
+    /// TODO
     IoNumTypes,
 }
 
@@ -85,7 +91,10 @@ impl From<IoType> for u32 {
             IoType::Compare => 14,
             IoType::CompareAndWrite => 15,
             IoType::Abort => 16,
-            IoType::IoNumTypes => 17,
+            IoType::SeekHole => 17,
+            IoType::SeekData => 18,
+            IoType::Copy => 19,
+            IoType::IoNumTypes => 20,
         }
     }
 }
@@ -110,7 +119,10 @@ impl From<u32> for IoType {
             14 => Self::Compare,
             15 => Self::CompareAndWrite,
             16 => Self::Abort,
-            17 => Self::IoNumTypes,
+            17 => Self::SeekHole,
+            18 => Self::SeekData,
+            19 => Self::Copy,
+            20 => Self::IoNumTypes,
             _ => panic!("invalid IO type"),
         }
     }

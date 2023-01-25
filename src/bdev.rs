@@ -107,7 +107,7 @@ where
 
     /// Returns by a Bdev module who has claimed this Bdev.
     pub fn claimed_by_module(&self) -> Option<BdevModule> {
-        let ptr = self.as_inner_ref().internal.claim_module;
+        let ptr = unsafe{ self.as_inner_ref().internal.claim.v1.module };
         if ptr.is_null() {
             None
         } else {
@@ -233,12 +233,12 @@ where
 
     /// Returns true if this Bdev is claimed by some other component.
     pub fn is_claimed(&self) -> bool {
-        !self.as_inner_ref().internal.claim_module.is_null()
+        unsafe{ !self.as_inner_ref().internal.claim.v1.module.is_null() }
     }
 
     /// Returns true if this Bdev is claimed by the given Bdev module.
     pub fn is_claimed_by_module(&self, module: &BdevModule) -> bool {
-        self.as_inner_ref().internal.claim_module == module.as_ptr()
+        unsafe{ self.as_inner_ref().internal.claim.v1.module == module.as_ptr() }
     }
 
     /// Releases a write claim on a block device.

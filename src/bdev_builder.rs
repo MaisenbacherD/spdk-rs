@@ -90,6 +90,8 @@ where
             get_spin_time: None,
             get_module_ctx: Some(inner_bdev_get_module_ctx::<BdevData>),
             get_memory_domains: None,
+            dump_device_stat_json: None,
+            reset_device_stat: None,
         });
         self.data = Some(ctx);
         self
@@ -209,6 +211,7 @@ where
                 internal: Default::default(),
                 reset_io_drain_timeout: Default::default(),
                 split_on_write_unit: Default::default(),
+                max_copy: Default::default(),
             },
             fn_table: self.fn_table.expect("Bdev function table must be set"),
             data: self.data.expect("Bdev data must be set"),

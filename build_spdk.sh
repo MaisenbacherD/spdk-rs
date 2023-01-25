@@ -7,9 +7,9 @@
 pushd spdk || { echo "Can not find spdk directory"; exit; }
 [ ! -d dpdk/.git ] || { echo "Submodules not checked out?"; exit; }
 
-./configure --enable-debug \
+AS=nasm ./configure --enable-debug \
 	--target-arch=nehalem \
-	--with-crypto \
+	--without-crypto \
 	--with-uring \
 	--disable-unit-tests \
 	--disable-tests \
