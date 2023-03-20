@@ -207,7 +207,7 @@ pub enum CommandSpecificStatusCode {
     TooManyActiveZones,
     TooManyOpenZones,
     InvalidZoneStateTransition,
-    Unknown,
+    Unknown(i32),
 }
 
 impl From<i32> for CommandSpecificStatusCode {
@@ -263,7 +263,7 @@ impl From<i32> for CommandSpecificStatusCode {
             0xbd => Self::TooManyActiveZones,
             0xbe => Self::TooManyOpenZones,
             0xbf => Self::InvalidZoneStateTransition,
-            _ => Self::Unknown,
+            status_code => Self::Unknown(status_code),
         }
     }
 }
