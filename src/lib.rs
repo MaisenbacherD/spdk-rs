@@ -78,6 +78,7 @@ pub use crate::{
         nvme_reservation_register_cptpl,
         nvme_reservation_type,
         GenericStatusCode,
+        CommandSpecificStatusCode,
         MediaErrorStatusCode,
         NvmeStatus,
         PathStatusCode,
