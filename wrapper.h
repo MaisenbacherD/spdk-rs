@@ -4,6 +4,7 @@
 #include <bdev/aio/bdev_aio.h>
 #include <bdev/crypto/vbdev_crypto.h>
 #include <bdev/error/vbdev_error.h>
+#include <bdev/ftl/bdev_ftl.h>
 #include <bdev/lvol/vbdev_lvol.h>
 #include <bdev/nvme/bdev_nvme.h>
 #include <bdev/malloc/bdev_malloc.h>
