@@ -339,6 +339,8 @@ fn main() {
         .rustified_enum("spdk_nvme_media_error_status_code")
         .allowlist_type("spdk_nvme_path_status_code")
         .rustified_enum("spdk_nvme_path_status_code")
+        .allowlist_type("spdk_ftl_mode")
+        .rustified_enum("spdk_ftl_mode")
         .allowlist_var("^NVMF.*")
         .allowlist_var("^SPDK.*")
         .allowlist_var("^spdk.*")
