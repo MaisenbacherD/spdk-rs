@@ -44,6 +44,7 @@ export MSG_NC=$RESET_COLOR
 CONFIGURE_ARGS=(
     "--without-shared"
     "--with-uring"
+    "--without-uring-zns"
     "--without-nvme-cuse"
     "--without-fuse"
     "--disable-unit-tests"
